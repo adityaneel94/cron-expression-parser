@@ -1,7 +1,6 @@
 package com.deliveroo.cron.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.lang.String.format;
 
@@ -33,7 +32,11 @@ public class CronExpressionResponse {
         System.out.println(b.toString());
     }
 
-    private String printList(List<Integer> integers) {
-        return integers.stream().map(Object::toString).collect(Collectors.joining(" "));
+    private String printList(List<Integer> cronValues) {
+        String result = "";
+        for(Integer cronValue: cronValues) {
+            result += cronValue.toString() + " ";
+        }
+        return result;
     }
 }
